@@ -34,26 +34,66 @@
 
 ### 1.2. 주제별 슬롯
 
-**건강 및 식음료**
-
-- 인물: 
-
-|Domain|Slot|Description|Example|
-|---|---|---|---|
-|건강 및 식음료|인물|식당과 관련된 인물(셰프), 유명 의료인의 이름|이연복, 레이먼킴 등|
-||제품/서비스|제품 및 서비스의 종류 및 명칭|피자, 파스타, 치킨, 등|
-||장소/조직|식당, 업체명, 매장의 명칭, 플랫폼, 병원이나 약국의 이름, 의학, 의료 관련 기관, 단체|풀무원, 대웅제약, 성모병원, 국민은행 등|
-||지역|식당이나 의료 시설과 관련된 지역의 지명|연희동, 일원동, 속초 등|
-||영양소/성분|||
+파일 참조: [주제별 슬롯.pdf](https://github.com/trailerAI/Multi_Turn_Modeling/files/13934829/slot.pdf)
 
 ### 1.3. 다운로드
 
-
+추가 예정.
 
 ## 2. 사용법
 
-```python
+### 2-1. 저장소 다운로드
 
-from transformers import AutoTokenizer
+```shell
+
+git clone https://github.com/trailerAI/Multi_Turn_Modeling.git
+cd Multi_Turn_Modeling
 
 ```
+
+### 2-2. 데이터 다운로드
+
+```
+Multi_Turn_Modeling/
+├── data/
+|   ├── 건강_및_식음료/
+|   |   ├── train.json
+|   |   ├── eval.json
+|   |   ├── test.json
+|   |   └── ontology.json
+|   ├── 여행_관광_및_명소/
+|   ├── ...
+|   └── IT_과학/
+├── dataset.py
+├── model.py
+├── README.md
+├── test.py
+├── train.py
+└── utils.py
+```
+
+### 2-3. 학습
+
+```shell
+
+python train.py -td data/건강_및_식음료/train.json \
+-vd data/건강_및_식음료/eval.json \
+-od data/건강_및_식음료/ontology.json
+
+```
+
+**사용 가능한 파라미터**
+
+```
+-td, --train_dir: 학습 데이터 경로 (필수)
+-vd, --eval_dir: 검증 데이터 경로 (필수)
+-od, --ontology_dir: ontology 경로 (필수)
+-pt, --pretrained_tokenizer: 사전학습된 토크나이저 경로, huggingface 경로와 file system 경로 모두 가능 (default: yeongjoon/kconvo-roberta)
+-pm, --pretrained_model: 사전학습된 모델 경로, huggingface 경로와 file system 경로 모두 가능 (default: yeongjoon/kconvo-roberta)
+-e, --num_epochs: 에폭 수 (default: 100)
+-p, --patience: early stopping patience. 미사용시 -1 (default: 3)
+-b, --batch_size: 배치 크기, 본인 메모리에 따라 2의 지수배로 입력 (default: 64)
+-ml, --max_length: 입력 최대 길이, 변경 x (default: 512)
+```
+
+
