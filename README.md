@@ -72,7 +72,7 @@ Multi_Turn_Modeling/
 └── utils.py
 ```
 
-### 2-3. 학습
+### 2-3. 학습 및 검증
 
 ```shell
 
@@ -86,14 +86,33 @@ python train.py -td data/건강_및_식음료/train.json \
 
 ```
 -td, --train_dir: 학습 데이터 경로 (필수)
--vd, --eval_dir: 검증 데이터 경로 (필수)
+-vd, --valid_dir: 검증 데이터 경로 (필수)
 -od, --ontology_dir: ontology 경로 (필수)
 -pm, --pretrained_model: 사전학습된 모델 경로, huggingface 경로와 file system 경로 모두 가능 (default: yeongjoon/kconvo-roberta)
 -e, --num_epochs: 에폭 수 (default: 100)
 -p, --patience: early stopping patience. 미사용시 -1 (default: 3)
--b, --batch_size: 배치 크기, 본인 메모리에 따라 2의 지수배로 입력 (default: 64)
+-b, --batch_size: 배치 크기, 본인 메모리에 맞게 2의 지수배로 입력 (default: 64)
 -ml, --max_length: 입력 최대 길이, 변경 x (default: 512)
 -lr, --learning_rate: 학습률, AdaGrad 논문 참조 (default: 5e-5)
 ```
 
+### 2-4. 시험
+
+```shell
+
+python test.py -d data/건강_및_식음료/test.json \
+-od data/건강_및_식음료/ontology.json
+
+```
+
+**사용 가능한 파라미터**
+
+```
+-d, --data_dir: 시험 데이터 경로 (필수)
+-od, --ontology_dir: ontology 경로 (필수)
+-sd, --save_dir: 파일 저장 경로 (default: ./result_test/)
+-b, --batch_size: 배치 크기, 본인 메모리에 맞게 2의 지수배로 입력 (default: 64)
+-ml, --max_length: 입력 최대 길이, 변경 x (default: 512)
+-lr, --learning_rate: 학습률, AdaGrad 논문 참조 (default: 5e-5)
+```
 
