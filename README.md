@@ -138,5 +138,5 @@ python test.py -d data/건강_및_식음료/test.json \
 
 ### 3-1. RoBERTa
 
-
+![roberta-multichoice](https://github.com/trailerAI/Multi_Turn_Modeling/assets/45366231/ab7d3c15-a568-4b04-9ef0-999af4fd33f2)
 
