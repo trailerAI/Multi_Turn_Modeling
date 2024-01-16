@@ -136,7 +136,25 @@ python test.py -d data/건강_및_식음료/test.json \
 
 ## 3. 모델
 
+Encoder Based Transformer 구조를 활용하여 모델을 구축하였습니다. BERT, RoBERTa, ELECTRA 등의 후보 모델을 예비실험한 결과, RoBERTa를 최종 선정하였습니다.
+
 ### 3-1. RoBERTa
 
-![roberta-multichoice](https://github.com/trailerAI/Multi_Turn_Modeling/assets/45366231/ab7d3c15-a568-4b04-9ef0-999af4fd33f2)
+<img src="https://github.com/trailerAI/Multi_Turn_Modeling/assets/45366231/ab7d3c15-a568-4b04-9ef0-999af4fd33f2" width=50% height=50%>
 
+Endoer-Based Transformer 구조를 활용하여 모델을 구축하였습니다.
+
+### 3-2. Token Classification
+
+<img src="https://github.com/trailerAI/Multi_Turn_Modeling/assets/45366231/07ed8195-062f-46eb-a644-74827305ac1a" width=50% height=50%>
+
+Token 단위에서 분류하는 Token Classification 기법을 사용하여 예측하였습니다.
+<CLS> 토큰에서 특수 슬롯(가격대, 평가/후기/감상)의 5가지 상태(yes, no, soso, dontcare, none)를 예측하고, 나머지 토큰에서 NER과 같은 BIO 레이블링을 통해 Dialog State를 예측합니다.
+
+## 4. 실험
+
+### 4-1. 환경
+
+```
+
+```
