@@ -129,7 +129,6 @@ python test.py -d data/건강_및_식음료/test.json \
 -sd, --save_dir: 파일 저장 경로 (default: ./result_test/)
 -b, --batch_size: 배치 크기, 본인 메모리에 맞게 2의 지수배로 입력 (default: 64)
 -ml, --max_length: 입력 최대 길이, 변경 x (default: 512)
--lr, --learning_rate: 학습률, AdaGrad 논문 참조 (default: 5e-5)
 ```
 
 시험을 마치면 저장 경로에 성능 측정 결과인 performance_{domain}.txt, 예측 결과인 pred_{domain}.txt 파일이 생성됩니다.
@@ -168,4 +167,49 @@ Python 3.6.9
 PyTorch 1.8.0+cu111
 ```
 
-### 4-2. 
+### 4-2. 사용 파라미터
+
+**학습**
+
+```shell
+python train.py -td ./Training/{domain}.json \
+-vd ./Validation/{domain}.json \
+-od ./Others/{domain}_ontology.json \
+-pm yeongjoon/kconvo-roberta \
+-e 100 \
+-p 3 \
+-b 64 \
+-ml 512 \
+-lr 0.00005
+```
+
+**시험**
+
+```shell
+python test.py -d ./Test/{domain}.json \
+-od ./Others/{domain}_ontology.json \
+-sd ./result_test/ \
+-b 64 \
+-ml 512
+```
+
+### 4-3. 성능
+
+성능 측정은 KLUE Benchmark에서 DST 성능 측정을 위해 사용하는 Slot-F1 소스 코드를 사용하였으며, Precision, Recall과 TP, FP, FN을 출력하기 위해 약간의 수정을 하였습니다.
+수정된 코드는 [utils.py](https://github.com/trailerAI/Multi_Turn_Modeling/blob/main/utils.py)의 compute_f1 메소드를 확인하시면 됩니다.
+
+|도메인|Precision|Recall|F1|
+|---:|---|---|---|
+|건강 및 식음료|0.940934066|0.911690996|0.926081735|
+|여행, 관광 및 명소|0.926778489|0.912496563|0.919582077|
+|문화 생활 및 여가|0.93733292|0.903322985|0.920013751|
+|미용과 패션|0.925879421|0.91744191|0.921641355|
+|스포츠 및 e스포츠|0.916507689|0.932449188|0.924409716|
+|콘텐츠 소비|0.918865119|0.930325141|0.924559619|
+|정치|0.932717949|0.926522129|0.929609715|
+|경제 및 사회|0.958449192|0.901497959|0.929101657|
+|과학 기술|0.938801403|0.897130274|0.917492923|
+
+실험 결과 평균 F1은 0.9236으로 유효성 평가 기준인 0.92를 통과하였으며, **여행, 관광 및 명소**, **과학 기술**을 제외한 모든 도메인에서 0.92 이상의 성능을 달성하였습니다.
+
+## 
