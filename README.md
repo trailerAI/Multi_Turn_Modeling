@@ -145,7 +145,7 @@ Endoer-Based Transformer 구조를 활용하여 모델을 구축하였습니다.
 
 ### 3-2. Token Classification
 
-<img src="https://github.com/trailerAI/Multi_Turn_Modeling/assets/45366231/07ed8195-062f-46eb-a644-74827305ac1a" width=50% height=50%>
+<img src="https://github.com/trailerAI/Multi_Turn_Modeling/assets/45366231/07ed8195-062f-46eb-a644-74827305ac1a" width=70% height=70%>
 
 Token 단위에서 분류하는 Token Classification 기법을 사용하여 예측하였습니다.
 <CLS> 토큰에서 특수 슬롯(가격대, 평가/후기/감상)의 5가지 상태(yes, no, soso, dontcare, none)를 예측하고, 나머지 토큰에서 NER과 같은 BIO 레이블링을 통해 Dialog State를 예측합니다.
@@ -216,7 +216,7 @@ python test.py -d ./Test/{domain}.json \
 
 ### 5-1. Task Oriented Dialog System
 
-<img src="https://github.com/trailerAI/Multi_Turn_Modeling/assets/45366231/222fd8f8-8d93-46f5-aa71-876c74b718c8" width=50% height=50%>
+<img src="https://github.com/trailerAI/Multi_Turn_Modeling/assets/45366231/222fd8f8-8d93-46f5-aa71-876c74b718c8" width=70% height=70%>
 
 대화 상태 추적은 일반적으로 목적 지향 대화 시스템의 하위 시스템으로서 동작하며, 이를 이용하여 1. Detection 2. Selection 3. Generation 단계를 거치는 End-to-End 대화 시스템을 구축할 계획입니다.
 이를 위해 자체적으로 Knowledge Base를 구축하고, Text Generation 모델을 설계할 계획입니다.
@@ -226,7 +226,7 @@ python test.py -d ./Test/{domain}.json \
 LLM 모델을 학습시키기 위해서 여러 도메인과 다양한 태스크의 데이터셋이 필요합니다. 해당 데이터셋은 다양한 도메인을 만족하고 있으며, 타 태스크의 데이터셋과 함께 사용한다면 더욱 강건한 모델을 구축할 수 있습니다.
 추가로, RLHF와 DPO, PPO 등의 강화학습 기법을 사용한다면 LLM 학습이 가능합니다.
 
-![ML-14874_image001](https://github.com/trailerAI/Multi_Turn_Modeling/assets/45366231/de01e125-f257-41b9-b606-46704b20e640)
+<img src="https://github.com/trailerAI/Multi_Turn_Modeling/assets/45366231/de01e125-f257-41b9-b606-46704b20e640" width=70% height=70%>
 
 
 **이 프로젝트는 2023년도 정부(과학기술정보통신부)의 재원으로 한국지능정보사회진흥원의 지원을 받아 수행된 프로젝트입니다.**
