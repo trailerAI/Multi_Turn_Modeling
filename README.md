@@ -34,7 +34,7 @@
 
 ### 1.2. 주제별 슬롯
 
-파일 참조: [주제별 슬롯.pdf](https://github.com/trailerAI/Multi_Turn_Modeling/files/13934829/slot.pdf)
+[파일](https://github.com/trailerAI/Multi_Turn_Modeling/files/13945882/1.pdf) 참조
 
 ### 1.3. 다운로드
 
