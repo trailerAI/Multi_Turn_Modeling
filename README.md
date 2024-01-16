@@ -212,4 +212,19 @@ python test.py -d ./Test/{domain}.json \
 
 실험 결과 평균 F1은 0.9236으로 유효성 평가 기준인 0.92를 통과하였으며, **여행, 관광 및 명소**, **과학 기술**을 제외한 모든 도메인에서 0.92 이상의 성능을 달성하였습니다.
 
-## 
+## 5. 향후 연구
+
+### 5-1. Task Oriented Dialog System
+
+<img src="https://github.com/trailerAI/Multi_Turn_Modeling/assets/45366231/222fd8f8-8d93-46f5-aa71-876c74b718c8" width=50% height=50%>
+
+대화 상태 추적은 일반적으로 목적 지향 대화 시스템의 하위 시스템으로서 동작하며, 이를 이용하여 1. Detection 2. Selection 3. Generation 단계를 거치는 End-to-End 대화 시스템을 구축할 계획입니다.
+이를 위해 자체적으로 Knowledge Base를 구축하고, Text Generation 모델을 설계할 계획입니다.
+
+### 5-2. LLM
+
+LLM 모델을 학습시키기 위해서 여러 도메인과 다양한 태스크의 데이터셋이 필요합니다. 해당 데이터셋은 다양한 도메인을 만족하고 있으며, 타 태스크의 데이터셋과 함께 사용한다면 더욱 강건한 모델을 구축할 수 있습니다.
+추가로, RLHF와 DPO, PPO 등의 강화학습 기법을 사용한다면 LLM 학습이 가능합니다.
+
+![ML-14874_image001](https://github.com/trailerAI/Multi_Turn_Modeling/assets/45366231/de01e125-f257-41b9-b606-46704b20e640)
+
